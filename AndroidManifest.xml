@@ -5,12 +5,14 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
+        android:minSdkVersion="10"
         android:targetSdkVersion="19" />
     <instrumentation 
         android:name="android.test.InstrumentationTestRunner"
         android:targetPackage="com.github.lottery"
         ></instrumentation>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"

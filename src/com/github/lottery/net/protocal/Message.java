@@ -19,6 +19,14 @@ public class Message {
 	private Body body = new Body();
 	
 
+	public Header getHeader() {
+		return header;
+	}
+
+	public Body getBody() {
+		return body;
+	}
+
 	/**
 	 * 序列化协议
 	 */

@@ -5,9 +5,13 @@ import java.io.StringWriter;
 import org.xmlpull.v1.XmlSerializer;
 
 import com.github.lottery.ConstantValue;
-import com.github.lottery.net.element.CurrentIssueElement;
+import com.github.lottery.bean.User;
+import com.github.lottery.engine.UserEngine;
+import com.github.lottery.engine.UserEngineImpl;
+import com.github.lottery.net.CurrentIssueElement;
 import com.github.lottery.net.protocal.Element;
 import com.github.lottery.net.protocal.Message;
+import com.github.lottery.util.BeanFactory;
 
 import android.test.AndroidTestCase;
 import android.util.Log;
@@ -76,6 +80,25 @@ public class XmlTest extends AndroidTestCase {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	public void testUserLogin(){
+		
+//		UserEngineImpl impl = new UserEngineImpl();
+//		User user = new User();
+//		user.setUsername("12005555");
+//		user.setPassword("000000");
+//		Message login = impl.login(user);
+//		Log.i(TAG, login.getBody().getOelement().getErrorcode());
+	
+		UserEngine engine = BeanFactory.getImpl(UserEngine.class);
+		User user = new User();
+		user.setUsername("12005555");
+		user.setPassword("000000");
+		Message login = engine.login(user);
+		Log.i(TAG, login.getBody().getOelement().getErrorcode());
+		
 		
 	}
+	
+	
 }

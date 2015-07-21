@@ -9,7 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.xmlpull.v1.XmlSerializer;
 
 import com.github.lottery.ConstantValue;
-import com.github.lottery.utils.DES;
+import com.github.lottery.util.DES;
 
 import android.util.Xml;
 
@@ -21,6 +21,25 @@ import android.util.Xml;
 public class Body {
 	 
 	private List<Element> elements = new ArrayList<Element>();
+	
+	/********************  处理服务器回复   ***************************/
+	private String serviceBodyInsideDESinfo;//服务端回复的body中des加密的信息
+	private Oelement oelement = new Oelement();
+	
+	
+	public Oelement getOelement() {
+		return oelement;
+	}
+
+	public String getServiceBodyInsideDESinfo() {
+		return serviceBodyInsideDESinfo;
+	}
+
+	public void setServiceBodyInsideDESinfo(String serviceBodyInsideDESinfo) {
+		this.serviceBodyInsideDESinfo = serviceBodyInsideDESinfo;
+	}
+
+	/********************  处理服务器回复   ***************************/
 	
 
 	public List<Element> getElements() {

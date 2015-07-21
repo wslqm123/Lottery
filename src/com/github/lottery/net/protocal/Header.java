@@ -84,4 +84,16 @@ public class Header {
 	public Leaf getUsername() {
 		return username;
 	}
+
+	
+	/********************  处理服务器回复   ***************************/
+	
+	public Leaf getTimestamp() {
+		return timestamp;
+	}
+	
+	public Leaf getDigest() {
+		return digest;
+	}
+	
 }
