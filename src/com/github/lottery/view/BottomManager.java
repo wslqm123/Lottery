@@ -1,5 +1,11 @@
 package com.github.lottery.view;
 
+import java.util.Observable;
+import java.util.Observer;
+
+import org.apache.commons.lang3.StringUtils;
+
+import com.github.lottery.ConstantValue;
 import com.github.lottery.R;
 
 import android.app.Activity;
@@ -17,7 +23,7 @@ import android.widget.TextView;
  * @author Administrator
  * 
  */
-public class BottomManager {
+public class BottomManager implements Observer {
 	protected static final String TAG = "BottomManager";
 	/******************* 第一步：管理对象的创建(单例模式) ***************************************************/
 	// 创建一个静态实例
@@ -143,5 +149,23 @@ public class BottomManager {
 		playBottomNotice.setText(notice);
 	}
 	/*********************************************************************************************/
+
+	@Override
+	public void update(Observable observable, Object data) {
+		if (data!=null&&StringUtils.isNumeric(data.toString())) {
+			int id = Integer.parseInt(data.toString());
+			switch (id) {
+			case ConstantValue.VIEW_FIRST:
+			case ConstantValue.VIEW_HALL:
+				showCommonBottom();
+				break;
+			case ConstantValue.VIEW_SECOND:
+				showGameBottom();
+				break;
+
+			}
+		}
+		
+	}
 
 }
